@@ -120,15 +120,17 @@ const getStation = (req,res,next) => {
                         console.log('Database save success')
                     })
                     .catch((err) => {
-                        console.log('Get satation error')
+                        res.status(200).json({
+                            "message": "Veriler güncel"
+                        })
                     })
             })
         })
         .catch((err) => {
-            console.log('Get Station Error')
+            console.log(err)
         })
     }catch (err){
-        console.log('Get Station Error')
+        cconsole.log(err)
     }
 
 }
