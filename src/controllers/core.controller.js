@@ -133,7 +133,13 @@ const getStation = (req,res,next) => {
 
 }
 
+const home = (req,res) => {
+    res.status(200).json({
+        "message": "KutayKoca Backend APP"
+    })
+}
 module.exports = {
     getLocation,
-    getStation
+    getStation,
+    home
 }
