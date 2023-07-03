@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:3000/api
+
+
+// the request to this url is a post request. Here the location information of the person should be given. 
+###
+POST {{baseUrl}}/getLocation
+Content-Type: application/json
+
+{
+    "location": {
+        "latitude": "40.34105",
+        "longitude" : "27.95825"
+    }
+    
+}
+
+###
+
+// The request made here receives all stations and registers them in the database.
+
+###
+GET {{baseUrl}}/getStation
+###

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kutaykoca</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#kutay-koca---api-project">KUTAY KOCA - API PROJECT</a>
+<ul>
+<li><a href="#temel-özellikleri-ve-amacı">Temel Özellikleri ve Amacı</a></li>
+<li><a href="#kurulum-talimatları">Kurulum Talimatları</a></li>
+<li><a href="#kullanım-talimatları">Kullanım Talimatları</a></li>
+<li><a href="#i̇stekler-ve-dönüş-değerleri">İstekler ve Dönüş Değerleri</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="kutay-koca---api-project">KUTAY KOCA - API PROJECT</h1>
+<h2 id="temel-özellikleri-ve-amacı">Temel Özellikleri ve Amacı</h2>
+<p>Bandırma lokasyonunda bulunan istasyonlar API tarafından otomatik olarak alınır ve veritabanına kayıt edilir. Son kullanıcının bulunduğu konum alınır ve kullanıcıya en yakın olan durak belirlenir.</p>
+<h2 id="kurulum-talimatları">Kurulum Talimatları</h2>
+<p>Server tarafında Nodejs - Python ve MongoDB teknolojilerinin kurulu olması gerekmektedir. Ubuntu serverlar içerisinde bunlar genellikle kurulu olarak gelecektir.</p>
+<h2 id="kullanım-talimatları">Kullanım Talimatları</h2>
+<p>Kök dizin içerisinde bulunan .env dosyasını düzenlenmesi gerekemektedir. MongoDB veritabanı bağlantısı için gerekli olan söz dizimi burada yer alır. Örnek söz dizimi şu şekildedir.</p>
+<pre><code>CONNECTION_STRING  = mongodb://localhost:27017/kutaykoca
+</code></pre>
+<p>Servisin size sağlamış olduğu söz dizimi ile burayı güncelleyin.</p>
+<pre><code>npm install
+</code></pre>
+<p>Bu komut ile bağımlılıkları yükledikten sonra servisi aşağıdaki komut ile çalıştırabilirsiniz.</p>
+<pre><code>npm run start
+</code></pre>
+<h2 id="i̇stekler-ve-dönüş-değerleri">İstekler ve Dönüş Değerleri</h2>
+<blockquote>
+<p><a href="http://xn--sitead-u9a.com/api/getLocation">http://siteadı.com/api/getLocation</a><br>
+Bu istek POST isteğidir. Bu adrese kullanıcının lokasyon bilgilerinin iletilmesi gerekmektedir. Örnek veri formatı aşağıdaki gibi olmalıdır.</p>
+</blockquote>
+<pre><code>    {
+
+	    "location":  {
+
+		    "latitude":  "40.34105",
+
+		    "longitude"  :  "27.95825"
+
+	    }
+
+    }
+</code></pre>
+<p>Burada gönderilen değere karşılak dönen değer ise aşağıdaki gibi olacaktır.</p>
+<pre><code>HTTP/1.1 200 OK  
+X-Powered-By: Express  
+Content-Type: application/json; charset=utf-8  
+Content-Length: 165  
+ETag: W/"a5-kwLc6g+/ucVotGD4D2ejLy0YpTI"  
+Date: Sat, 01 Jul 2023 14:33:15 GMT  
+Connection: close  
+{  
+    "message": "distance calculate success",  
+    "data": {  
+	    "name": "BAN-106 ÇAMLIK DURAĞI 1",  
+	    "latidute": "40.34068434861845",  
+	    "longitude": "27.95689087361097",  "distance": "0.12"  
+		    }  
+}
+</code></pre>
+<blockquote>
+<p><a href="http://xn--sitead-u9a.com/api/getStation">http://siteadı.com/api/getStation</a><br>
+Bu istek bir GET isteğidir. Sisteme istasyonların getirilmesini sağlar. Bandırma ilçesinde bulunan tüm istasyonlar bu istek ile getirilir ve veritabanına kayıt edilir. Bu komutun periyodik olarak çalıştırılması doğru olacaktır. Buraya yapılan istekten dönen değer aşağıdaki gibidir.</p>
+</blockquote>
+<pre><code>HTTP/1.1 200 OK
+X-Powered-By:  Express
+Content-Type:  application/json; charset=utf-8
+Content-Length:  33
+ETag:  W/"21-kcu+Fz9E3TZV0CWlRR68lyMaAZA"
+Date:  Sat, 01 Jul 2023 13:55:51 GMT
+Connection:  close
+
+{"message":"Get Station Success"}
+</code></pre>
+
+    </div>
+  </div>
+</body>
+
+</html>
