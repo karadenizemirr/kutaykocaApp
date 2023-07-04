@@ -1,2 +1,2 @@
-src/node_modules/
-src/pythonAPI/env
+node_modules/
+pythonAPI/env
