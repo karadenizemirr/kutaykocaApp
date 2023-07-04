@@ -34,6 +34,6 @@ coreRouter(app)
 })` is starting the server and listening for incoming requests on port 3000. When a request is
 received, the server will execute the callback function, which in this case logs the message
 "listening on port 3000" to the console. */
-app.listen(8080, () => {
+app.listen(3000, () => {
     console.log('listening on port 3000')
 })
