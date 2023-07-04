@@ -117,7 +117,9 @@ const getStation = (req,res,next) => {
                 
                 Stations.create(data)
                     .then((saveRes) => {
-                        console.log('Database save success')
+                        res.status(200).json({
+                            "message": "veriler başarı ile eklendi."
+                        })
                     })
                     .catch((err) => {
                         res.status(200).json({
