@@ -29,14 +29,16 @@ const getStationWithWeb = () => {
                     return axios.get(stationDetailBaseURL + element.seo, { httpsAgent })
                         .then(result => {
                             const $ = cheerio.load(result.data).html().toString('utf-8');
-                            const allCoordinates = $.match(/let stationsData = \[(.*?)\]/)[1];
+                            const allCoordinates = $.match(/let stationsData = \[(.*?)\]/);
 
                             /* The code block is checking if the variable `allCoordinates` has a length
                             greater than 0. If it does, it means that there are coordinates
                             available. */
                             if (allCoordinates.length > 0) {
-                                const jsonData = JSON.parse(`[${allCoordinates}]`)
-                                coordinatesResult.push(jsonData)
+                                for (const coordinate of allCoordinates){
+                                    const jsonData = JSON.parse(`[${coordinate}]`)
+                                    coordinatesResult.push(jsonData)
+                                }
                             }
                         })
                         .catch(err => {

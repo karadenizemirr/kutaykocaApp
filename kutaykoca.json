@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "3ca2a4ac-2027-452e-86b7-f33b420976b6",
+		"name": "Kutay Koca App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16111134"
+	},
+	"item": [
+		{
+			"name": "Get Station",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://137.184.114.251:3000/api/getStation",
+					"protocol": "http",
+					"host": [
+						"137",
+						"184",
+						"114",
+						"251"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getStation"
+					]
+				},
+				"description": "Burası istasyonların listelendiği istektir. Post isteğinde size geri dönüş olmayacaktır."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Location",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"location\": {\n        \"latitude\": \"40.34105\",\n        \"longitude\" : \"27.95825\"\n    }\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://137.184.114.251:3000/api/getLocation",
+					"protocol": "http",
+					"host": [
+						"137",
+						"184",
+						"114",
+						"251"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"getLocation"
+					]
+				},
+				"description": "Örnekteki formatta lokasyonların bu adrese iletilmesi gerekir. Sonuçlar JSON formatında geri dönecektir. GET isteğinde cevap alınamaz."
+			},
+			"response": []
+		}
+	]
+}
